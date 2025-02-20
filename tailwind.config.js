@@ -2,7 +2,9 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      'airplan' : "url('src\img\airplane.png)",
+    },
   },
   plugins: [],
 }

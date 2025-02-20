@@ -20,8 +20,8 @@ export class Header extends Component {
 
   render() {
     return (
-<header className="fixed w-full bg-blue-800 text-white py-4 h-auto">
-  <div className="container mx-auto flex justify-between items-center px-4">
+<header className="fixed w-full bg-blue-800 text-white h-auto">
+  <div className="container mx-auto flex justify-evenly items-center px-4 gap-20">
       <h1 className='text-xl font-bold'>
         <a href='#'>
           <span>ASIANA AIRLINES</span>
@@ -31,7 +31,7 @@ export class Header extends Component {
       <ul className="flex space-x-6">
         
         {/* 예약 */}
-        <li className=""
+        <li className="p-[20px]"
             onMouseEnter={() => this.handleMouseEnter('예약')} 
             onMouseLeave={this.handleMouseLeave}>
           <a href="#" className="hover:text-gray-300">예약</a>
@@ -86,16 +86,16 @@ export class Header extends Component {
           )}
         </li>
           
-              <li className="relative"
+              <li className="p-[20px]"
                   onMouseEnter={() => this.handleMouseEnter('여행준비')} 
                   onMouseLeave={this.handleMouseLeave}>
                 <a href="#" className="hover:text-gray-300">여행준비</a>
 
                 {/* 여행준비 드롭다운 */}
                 {this.state.activeDropdown === '여행준비'&& (
-                  <div className="absolute left-0 top-full bg-white text-black shadow-lg p-4 w-[300px]">
+                  <div className="absolute left-0 top-full w-full bg-slate-400 text-black shadow-lg p-6 flex flex-col items-center text-center">
                     
-                    <ul className="mb-4">
+                    <ul className="flex flex-col border-s-2 border-gray-200 text-start">
                       <h2 className="font-bold text-lg">체크인 안내</h2>
                       <li><a href="#" className="block hover:text-blue-500">사전 체크인</a></li>
                       <li><a href="#" className="block hover:text-blue-500">공항 체크인</a></li>
@@ -103,7 +103,7 @@ export class Header extends Component {
                     </ul>
 
                     
-                    <ul className="mb-4">
+                    <ul className="flex flex-col border-s-2 border-gray-200 text-start">
                       <h2 className="font-bold text-lg">수화물</h2>
                       <li><a href="#" className="block hover:text-blue-500">이용안내</a></li>
                       <li><a href="#" className="block hover:text-blue-500">위탁수하물</a></li>
@@ -114,7 +114,7 @@ export class Header extends Component {
                     </ul>
 
                     
-                    <ul className="mb-4">
+                    <ul className="flex flex-col border-s-2 border-gray-200 text-start">
                       <h2 className="font-bold text-lg">도움이 필요한 고객</h2>
                       <li><a href="#" className="block hover:text-blue-500">장애인 고객</a></li>
                       <li><a href="#" className="block hover:text-blue-500">고령자 고객</a></li>
@@ -125,7 +125,7 @@ export class Header extends Component {
                       <li><a href="#" className="block hover:text-blue-500">의료도움이 필요한 고객</a></li>
                     </ul>
 
-                    <ul className="mb-4">
+                    <ul className="flex flex-col border-s-2 border-gray-200 text-start">
                       <h2 className="font-bold text-lg">출입국 규정 안내</h2>
                       <li><a href="#" className="block hover:text-blue-500">출입국 규정 정보</a></li>
                       <li><a href="#" className="block hover:text-blue-500">출입국 신고서</a></li>
@@ -136,7 +136,7 @@ export class Header extends Component {
                 )}
               </li>
               {/* 스카이패스 메뉴 */}
-              <li className="relative"
+              <li className="p-[20px]"
                   onMouseEnter={() => this.handleMouseEnter('여행')} 
                   onMouseLeave={this.handleMouseLeave}>
                 <a href="#" className="hover:text-gray-300">여행</a>
@@ -203,7 +203,7 @@ export class Header extends Component {
               </li>
 
 
-              <li className="relative"
+              <li className="p-[20px]"
                   onMouseEnter={() => this.handleMouseEnter('아시아나클럽')} 
                   onMouseLeave={this.handleMouseLeave}>
                 <a href="#" className="hover:text-gray-300">아시아나클럽</a>
@@ -257,9 +257,10 @@ export class Header extends Component {
                 )}
               </li>
             </ul>
-            <div>
+          </nav>
+            <div className='w-auto h-auto'>
               <div>
-                <div><a></a></div>
+                <div><a className='w-10 h-10 bg-airplan inline-block'></a></div>
               </div>
               <div>
                 <div><a></a></div>
@@ -268,7 +269,6 @@ export class Header extends Component {
                 <div><a></a></div>
               </div>
             </div>
-          </nav>
         </div>
       </header>
     );
