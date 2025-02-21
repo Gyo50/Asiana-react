@@ -5,8 +5,8 @@ import Test from './test/test';
 
 function App() {
   return (
-  <Header/>
-    // <Test />
+  // <Header/>
+    <Test />
   );
 }
 
