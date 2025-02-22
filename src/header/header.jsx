@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 export class Header extends Component {
   constructor(props) {
     super(props);
@@ -41,7 +42,7 @@ export class Header extends Component {
                     dir='ltr'
                     className="absolute left-0 top-full w-full bg-slate-400 text-black shadow-lg p-6 flex flex-col items-center text-center"
                   >
-                    <div className="grid grid-cols-5 gap-8 w-full max-w-6xl">
+                    <div className="grid grid-cols-5 gap-8 w-full max-w-6xl z-50">
 
                       {/* 항공권 예약 */}
                       <ul className="flex flex-col border-s-2 border-gray-200 text-start">
