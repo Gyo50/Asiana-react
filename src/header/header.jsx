@@ -21,14 +21,14 @@ export class Header extends Component {
 
   render() {
     return (
-      <header className="fixed w-full bg-blue-800 text-white h-auto">
-        <div className="container mx-auto flex justify-evenly items-center px-4 gap-20">
-          <h1 className='text-xl font-bold'>
-            <a href='#'>
-              <span>ASIANA AIRLINES</span>
-            </a>
-          </h1>
-          <nav className='flex space-x-6'>
+      <header className="fixed w-full bg-blue-800 text-white h-full">
+        <nav className='relative flex space-x-6'>
+          <div className="container mx-auto flex justify-evenly items-center px-4 gap-20">
+            <h1 className='text-xl font-bold'>
+              <a href='#'>
+                <span>ASIANA AIRLINES</span>
+              </a>
+            </h1>
             <ul className="flex space-x-6">
 
               {/* 예약 */}
@@ -260,20 +260,20 @@ export class Header extends Component {
                 )}
               </li>
             </ul>
-          </nav>
-          <div className='w-auto h-auto'>
-            <div>
-              <div><a className='w-10 h-10 bg-airplan inline-block'></a></div>
-            </div>
-            <div>
-              <div><a></a></div>
-            </div>
-            <div>
-              <div><a></a></div>
+            <div className='w-auto h-auto'>
+              <div>
+                <div><a className='w-10 h-10 bg-airplan inline-block'></a></div>
+              </div>
+              <div>
+                <div><a></a></div>
+              </div>
+              <div>
+                <div><a></a></div>
+              </div>
             </div>
           </div>
-        </div>
-      </header>
+        </nav>
+      </header >
     );
   }
 }
