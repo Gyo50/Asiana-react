@@ -21,7 +21,7 @@ export class Header extends Component {
 
   render() {
     return (
-      <header className="fixed w-full bg-blue-800 text-white h-full">
+      <header className="fixed w-full bg-blue-800 text-white z-10">
         <nav className='relative flex space-x-6'>
           <div className="container mx-auto flex justify-evenly items-center px-4 gap-20">
             <h1 className='text-xl font-bold'>

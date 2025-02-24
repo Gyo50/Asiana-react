@@ -18,7 +18,7 @@
   
   .swiper {
     width: 100%;
-    height: 500px;
+    height: 661px;
     position: relative;
     padding-top: 61px;
   }
@@ -47,4 +47,18 @@
     border: none;
     vertical-align: super;
     line-height: 0;
+  }
+
+  .arrow-box{
+    position: relative;
+  }
+  .arrow::after{
+    content: '';
+    width: 10px; /* 사이즈 */
+    height: 10px; /* 사이즈 */
+    border-top: 1px solid #121212; /* 선 두께 */
+    border-right: 1px solid #121212; /* 선 두께 */
+    display: inline-block;
+    transform: rotate(45deg); /* 각도 */
+
   }
