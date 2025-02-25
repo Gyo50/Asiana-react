@@ -10,6 +10,7 @@ export default function Sec1() {
   const swiperRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isChecked, setIsChecked] = useState(false);
+  const [isStar, setStar] = useState(false);
 
   const toggleSwitch = () => {
     setIsChecked(!isChecked);
@@ -24,6 +25,10 @@ export default function Sec1() {
       }
       setIsPlaying(!isPlaying);
     }
+  };
+
+  const toggleStar = () => {
+    setStar(!isStar);
   };
 
   return (
@@ -81,59 +86,71 @@ export default function Sec1() {
       </button>
 
       {/* 추가할 컨텐츠 (항공권 예약, 예약 조회 등) */}
-      <div className="-mt-14 flex w-full max-w-4xl text-center z-20">
-        <div className="p-5 w-[150px] h-[65px] bg-red-500 bg-opacity-80 text-white rounded-lg shadow-lg cursor-pointer hover:bg-blue-700 transition">
-          항공권 예약
+      <div className="w-[1280px] z-20 absolute left-[20%] top-0 box-border mt-[652px] mx-auto">
+        <div className="-mt-14 flex w-full max-w-4xl text-center absolute">
+          <div className="p-5 w-[150px] h-[65px] bg-red-500 bg-opacity-80 text-white rounded-lg shadow-lg cursor-pointer hover:bg-blue-700 transition">
+            항공권 예약
+          </div>
+          <div className="p-5 w-[150px] h-[65px] bg-pink-800 bg-opacity-80 text-white rounded-lg shadow-lg cursor-pointer hover:bg-blue-700 transition">
+            예약 조회
+          </div>
+          <div className="p-5 w-[150px] h-[65px] bg-blue-700 bg-opacity-80 text-white rounded-lg shadow-lg cursor-pointer hover:bg-blue-700 transition">
+            체크인
+          </div>
+          <div className="p-5 w-[150px] h-[65px] bg-yellow-400 bg-opacity-80 text-white rounded-lg shadow-lg cursor-pointer hover:bg-blue-700 transition">
+            출도착 조회
+          </div>
         </div>
-        <div className="p-5 w-[150px] h-[65px] bg-pink-800 bg-opacity-80 text-white rounded-lg shadow-lg cursor-pointer hover:bg-blue-700 transition">
-          예약 조회
-        </div>
-        <div className="p-5 w-[150px] h-[65px] bg-blue-700 bg-opacity-80 text-white rounded-lg shadow-lg cursor-pointer hover:bg-blue-700 transition">
-          체크인
-        </div>
-        <div className="p-5 w-[150px] h-[65px] bg-yellow-400 bg-opacity-80 text-white rounded-lg shadow-lg cursor-pointer hover:bg-blue-700 transition">
-          출도착 조회
-        </div>
-      </div>
-      <div>
-        <div>
-          <div>
-            <div className="flex items-center gap-3">
-              {/* 마일리지 사용 텍스트 */}
-              <span className="text-xs font-medium">마일리지 사용</span>
 
-              {/* 토글 버튼 */}
-              <label className="relative flex items-center cursor-pointer w-[50px] h-[25px]">
-                {/* input checkbox (숨김) */}
-                <input
-                  type="checkbox"
-                  id="allChecked"
-                  className="sr-only peer"
-                  checked={isChecked}
-                  onChange={toggleSwitch}
+        <div className="z-30 relative">
+          <div className="w-auto py-[30px] px-[50px] bg-[#ffff] rounded-b-lg">
+            <div className="flex items-center relative">
+              <div className="flex items-center gap-3 h-[46px]">
+                <span className=" font-medium">마일리지 사용</span>
+                <label className="relative flex items-center cursor-pointer w-[50px] h-[25px]">
+                  <input
+                    type="checkbox"
+                    id="allChecked"
+                    className="sr-only peer"
+                    checked={isChecked}
+                    onChange={toggleSwitch}
+                  />
+                  <div className="w-full h-full bg-gray-400 peer-checked:bg-blue-500 relative transition duration-300"></div>
+                  <div
+                    className={`absolute top-1/2 transform -translate-y-1/2 w-[30px] h-[30px] bg-white flex items-center justify-center text-xs font-bold transition-all duration-300 shadow-sm ${isChecked ? "left-[28px]" : "left-[0px]"
+                      }`}
+                  >
+                    {isChecked ? "ON" : "OFF"}
+                  </div>
+                </label>
+              </div>
+              <span className="line inline-block float-left w-[1px] h-[46px] bg-[#ccc] my-[5px] mx-[15px]"></span>
+              <div className="h-auto">
+                <ul className="flex h-[46px] items-center text-center">
+                  <li className="w-[105px] h-full leading-[46px] bg-[#f3f3f3]"><a href="#">왕복</a></li>
+                  <li className="w-[105px] h-full leading-[46px] bg-[#f3f3f3]"><a href="#">편도</a></li>
+                  <li className="w-[105px] h-full leading-[46px] bg-[#f3f3f3]"><a className="arrow-box" href="#"><span className="arrow">다구간</span></a></li>
+                </ul>
+              </div>
+              <div
+                className="w-[46px] h-[46px] bg-[#f3f3f3] ml-[15px] flex items-center justify-center cursor-pointer"
+                onClick={toggleStar}>
+                <img
+                  src={isStar ? "/img/starfill.png" : "/img/star.png"}
+                  alt="Star Icon"
+                  className="w-[20px] h-[20px] transition-all duration-300"
                 />
-
-                {/* 토글 배경 */}
-                <div className="w-full h-full bg-gray-400 peer-checked:bg-blue-500 rounded-full relative transition duration-300"></div>
-
-                {/* 슬라이더 (OFF → ON 포함) */}
-                <div
-                  className={`absolute top-1/2 transform -translate-y-1/2 w-[20px] h-[20px] bg-white rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 ${isChecked ? "left-[28px]" : "left-[3px]"
-                    }`}
-                >
-                  {isChecked ? "ON" : "OFF"}
-                </div>
-              </label>
-            </div>
-            <span className="line inline-block float-left w-[1px] h-[36px] bg-[#ccc] my-[5px] mx-[15px]"></span>
-            <div>
-              <ul>
-                <li><a href="#">왕복</a></li>
-                <li><a href="#">편도</a></li>
-                <li><a className="arrow-box" href="#"><span className="arrow">다구간</span></a></li>
-              </ul>
+              </div>
+              <div className="pl-4">
+                <input type="checkbox" />
+                <label className="ml-2" htmlFor="">가까운 날짜 조회</label>
+              </div>
+              <div>
+                <button className="font-bold border-solid border-rose-700 border-[1px] py-[9px] px-[9px]">쿠폰조회</button>
+              </div>
             </div>
           </div>
+          
         </div>
         <div></div>
       </div>
