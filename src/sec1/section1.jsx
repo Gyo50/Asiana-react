@@ -86,7 +86,7 @@ export default function Sec1() {
       </button>
 
       {/* 추가할 컨텐츠 (항공권 예약, 예약 조회 등) */}
-      <div className="w-[1280px] z-20 absolute left-[20%] top-0 box-border mt-[652px] mx-auto">
+      <div className="w-[1280px] z-20 absolute left-[20%] top-0 box-border mt-[652px] mx-auto ">
         <div className="-mt-14 flex w-full max-w-4xl text-center absolute">
           <div className="p-5 w-[150px] h-[65px] bg-red-500 bg-opacity-80 text-white rounded-lg shadow-lg cursor-pointer hover:bg-blue-700 transition">
             항공권 예약
@@ -103,7 +103,7 @@ export default function Sec1() {
         </div>
 
         <div className="z-30 relative">
-          <div className="w-auto py-[30px] px-[50px] bg-[#ffff] rounded-b-lg">
+          <div className="w-auto py-[30px] px-[50px] bg-[#ffff] rounded-b-lg shadow-2xl">
             <div className="flex items-center relative">
               <div className="flex items-center gap-3 h-[46px]">
                 <span className=" font-medium">마일리지 사용</span>
