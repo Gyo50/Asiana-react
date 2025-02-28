@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import "./header.css";
 
 export class Header extends Component {
   constructor(props) {
@@ -22,6 +22,17 @@ export class Header extends Component {
   render() {
     return (
       <header className="fixed w-full bg-blue-800 text-white z-10">
+        <div className="flex gap-6 justify-end text-white h-auto mr-[270px] mt-1">
+          {["회원가입", "이벤트", "자주 묻는 질문", "언어 선택"].map((item, index) => (
+            <div
+              key={index}
+              className="px-4 py-2 rounded-md cursor-pointer transition-all duration-300 
+                     hover:border-blue-500 hover:shadow-lg border border-transparent"
+            >
+              {item}
+            </div>
+          ))}
+        </div>
         <nav className='relative flex space-x-6'>
           <div className="container mx-auto flex justify-evenly items-center px-4 gap-20">
             <h1 className='text-xl font-bold'>
@@ -29,69 +40,74 @@ export class Header extends Component {
                 <span>ASIANA AIRLINES</span>
               </a>
             </h1>
-            <ul className="flex space-x-6">
+            <ul className="flex gap-3">
 
               {/* 예약 */}
-              <li className="p-[20px]"
+              <li className="navlist p-[20px] cursor-pointer"
                 onMouseEnter={() => this.handleMouseEnter('예약')}
                 onMouseLeave={this.handleMouseLeave}>
-                <a href="#" className="hover:text-gray-300">예약</a>
+                <a href="#" className="hover:text-gray-300">예약
+                  
+                </a>
 
-                {this.state.activeDropdown === '예약' && (
-                  <div
-                    dir='ltr'
-                    className="absolute left-0 top-full w-full bg-slate-400 text-black shadow-lg p-6 flex flex-col items-center text-center"
-                  >
-                    <div className="grid grid-cols-5 gap-8 w-full max-w-6xl z-50">
-
-                      {/* 항공권 예약 */}
-                      <ul className="flex flex-col border-s-2 border-gray-200 text-start">
-                        <h2 className="font-bold text-lg mb-4 pl-6">항공권 예약</h2>
-                        <li><a href="#" className="block hover:text-blue-500 pl-6">항공권 예약</a></li>
-                        <li><a href="#" className="block hover:text-blue-500 pl-6">항공권 변경 및 환불</a></li>
-                        <li><a href="#" className="block hover:text-blue-500 pl-6">온라인예약 안내</a></li>
-                        <li><a href="#" className="block hover:text-blue-500 pl-6">최저가 간편조회</a></li>
-                        <li><a href="#" className="block hover:text-blue-500 pl-6">신용카드 혜택</a></li>
-                        <li><a href="#" className="block hover:text-blue-500 pl-6">철도 연계 서비스</a></li>
-                      </ul>
-
-                      {/* 예약조회 */}
-                      <ul className="flex flex-col border-s-2 border-gray-200 text-start">
-                        <h2 className="font-bold text-lg mb-4 pl-6">예약조회</h2>
-                        <li><a href="#" className="block hover:text-blue-500 pl-6">예약내역</a></li>
-                        <li><a href="#" className="block hover:text-blue-500 pl-6">항공권 구매내역</a></li>
-                      </ul>
-
-                      {/* 체크인 */}
-                      <ul className="flex flex-col border-s-2 border-gray-200 text-start">
-                        <h2 className="font-bold text-lg mb-4 pl-6">체크인 하기</h2>
-                      </ul>
-
-                      {/* 운항정보 */}
-                      <ul className="flex flex-col border-s-2 border-gray-200 text-start">
-                        <h2 className="font-bold text-lg mb-4 pl-6">운항정보</h2>
-                        <li><a href="#" className="block hover:text-blue-500 pl-6">스케줄 조회</a></li>
-                        <li><a href="#" className="block hover:text-blue-500 pl-6">출도착 조회</a></li>
-                      </ul>
-
-                      {/* 취항지정보 */}
-                      <ul className="flex flex-col border-s-2 border-gray-200 text-start">
-                        <h2 className="font-bold text-lg mb-4 pl-6">취항지정보</h2>
-                        <li><a href="#" className="block hover:text-blue-500 pl-6">운항 노선</a></li>
-                        <li><a href="#" className="block hover:text-blue-500 pl-6">여행 정보</a></li>
-                        <li><a href="#" className="block hover:text-blue-500 pl-6">캐빈승무원 여행일기</a></li>
-                      </ul>
-
-                    </div>
-                  </div>
-                )}
               </li>
+              {this.state.activeDropdown === '예약' && (
+                <div
+                  dir='ltr'
+                  className="absolute m-0 left-0 top-full w-full bg-slate-400 text-black shadow-lg p-6 flex flex-col items-center text-center"
+                >
+                  <div className="grid grid-cols-5 gap-8 w-full max-w-6xl z-50">
 
-              <li className="p-[20px]"
+                    {/* 항공권 예약 */}
+                    <ul className="flex flex-col border-s-2 border-gray-200 text-start">
+                      <h2 className="font-bold text-lg mb-4 pl-6">항공권 예약</h2>
+                      <li><a href="#" className="block hover:text-blue-500 pl-6">항공권 예약</a></li>
+                      <li><a href="#" className="block hover:text-blue-500 pl-6">항공권 변경 및 환불</a></li>
+                      <li><a href="#" className="block hover:text-blue-500 pl-6">온라인예약 안내</a></li>
+                      <li><a href="#" className="block hover:text-blue-500 pl-6">최저가 간편조회</a></li>
+                      <li><a href="#" className="block hover:text-blue-500 pl-6">신용카드 혜택</a></li>
+                      <li><a href="#" className="block hover:text-blue-500 pl-6">철도 연계 서비스</a></li>
+                    </ul>
+
+                    {/* 예약조회 */}
+                    <ul className="flex flex-col border-s-2 border-gray-200 text-start">
+                      <h2 className="font-bold text-lg mb-4 pl-6">예약조회</h2>
+                      <li><a href="#" className="block hover:text-blue-500 pl-6">예약내역</a></li>
+                      <li><a href="#" className="block hover:text-blue-500 pl-6">항공권 구매내역</a></li>
+                    </ul>
+
+                    {/* 체크인 */}
+                    <ul className="flex flex-col border-s-2 border-gray-200 text-start">
+                      <h2 className="font-bold text-lg mb-4 pl-6">체크인 하기</h2>
+                    </ul>
+
+                    {/* 운항정보 */}
+                    <ul className="flex flex-col border-s-2 border-gray-200 text-start">
+                      <h2 className="font-bold text-lg mb-4 pl-6">운항정보</h2>
+                      <li><a href="#" className="block hover:text-blue-500 pl-6">스케줄 조회</a></li>
+                      <li><a href="#" className="block hover:text-blue-500 pl-6">출도착 조회</a></li>
+                    </ul>
+
+                    {/* 취항지정보 */}
+                    <ul className="flex flex-col border-s-2 border-gray-200 text-start">
+                      <h2 className="font-bold text-lg mb-4 pl-6">취항지정보</h2>
+                      <li><a href="#" className="block hover:text-blue-500 pl-6">운항 노선</a></li>
+                      <li><a href="#" className="block hover:text-blue-500 pl-6">여행 정보</a></li>
+                      <li><a href="#" className="block hover:text-blue-500 pl-6">캐빈승무원 여행일기</a></li>
+                    </ul>
+
+                  </div>
+                </div>
+              )}
+
+              <li className="navlist p-[20px] cursor-pointer"
                 onMouseEnter={() => this.handleMouseEnter('여행준비')}
                 onMouseLeave={this.handleMouseLeave}>
-                <a href="#" className="hover:text-gray-300">여행준비</a>
+                <a href="#" className="hover:text-gray-300">여행준비
+                  
+                </a>
 
+              </li>
                 {/* 여행준비 드롭다운 */}
                 {this.state.activeDropdown === '여행준비' && (
                   <div dir='ltr' className="absolute left-0 top-full w-full bg-slate-400 text-black shadow-lg p-6 flex flex-col items-center text-center">
@@ -135,13 +151,15 @@ export class Header extends Component {
 
                   </div>
                 )}
-              </li>
 
-              <li className="p-[20px]"
+              <li className="navlist p-[20px] cursor-pointer"
                 onMouseEnter={() => this.handleMouseEnter('여행')}
                 onMouseLeave={this.handleMouseLeave}>
-                <a href="#" className="hover:text-gray-300">여행</a>
+                <a href="#" className="hover:text-gray-300">여행
+                  
+                </a>
 
+              </li>
                 {this.state.activeDropdown == '여행' && (
                   <div dir='ltr' className="absolute left-0 top-full w-full bg-slate-400 text-black shadow-lg p-6 flex flex-col items-center text-center">
                     <div className="grid grid-cols-5 gap-8 w-full max-w-6xl">
@@ -203,14 +221,17 @@ export class Header extends Component {
 
                   </div>
                 )}
-              </li>
 
 
-              <li className="p-[20px]"
+              <li className="navlist p-[20px] cursor-pointer"
                 onMouseEnter={() => this.handleMouseEnter('아시아나클럽')}
                 onMouseLeave={this.handleMouseLeave}>
-                <a href="#" className="hover:text-gray-300">아시아나클럽</a>
+                <a href="#" className="hover:text-gray-300">아시아나클럽
+                
 
+                </a>
+
+              </li>
                 {this.state.activeDropdown == '아시아나클럽' && (
                   <div className="absolute left-0 top-full w-full bg-slate-400 text-black shadow-lg p-6 flex flex-col items-center text-center">
                     <div className="grid grid-cols-5 gap-8 w-full max-w-6xl">
@@ -258,7 +279,6 @@ export class Header extends Component {
                     </div>
                   </div>
                 )}
-              </li>
             </ul>
             <div className='w-auto h-auto'>
               <div>
