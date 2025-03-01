@@ -1,10 +1,13 @@
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import DatePicker from "react-datepicker";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./styles.css";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import "react-datepicker/dist/react-datepicker.css";
+import "./custom-datepicker.css";
 
 export default function Sec1() {
   const swiperRef = useRef(null);
@@ -38,6 +41,13 @@ export default function Sec1() {
   }
   const toggleStar = () => {
     setStar(!isStar);
+  };
+
+  const [departureDate, setDepartureDate] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const handleDateChange = (date) => {
+    setDepartureDate(date);
+    setIsOpen(false); // 날짜 선택 후 달력 닫기
   };
 
   return (
@@ -109,10 +119,10 @@ export default function Sec1() {
           </div>
         </div>
 
-        { /* 항공권 */ }
+        { /* 항공권 */}
         <div className="z-30 relative">
           <div className="w-auto py-[30px] px-[50px] bg-[#ffff] rounded-b-lg shadow-2xl">
-            <div className="books">
+            <div className="books hidden">
               <div className="flex items-center relative">
                 <div className="flex items-center gap-3 h-[46px]">
                   <span className=" font-medium">마일리지 사용</span>
@@ -214,9 +224,87 @@ export default function Sec1() {
                 </button>
               </div>
             </div>
-            
+            <div className="secrch">
+              <div><p>예약하신 항공권의 여정을 편리하게 확인할 수 있습니다.</p></div>
+              <div className="bg-white pt -6 rounded-lg flex flex-col items-center w-full ">
+                {/* 가로 정렬된 입력 필드 */}
+                <div className="flex gap-4 w-full justify-between">
+                  {/* 예약번호 */}
+                  <input
+                    type="text"
+                    placeholder="예약번호"
+                    className="border border-gray-300 rounded-md p-2 w-[180px]"
+                  />
+
+                  {/* 출발지 */}
+                  <input
+                    type="text"
+                    placeholder="출발지"
+                    className="border border-gray-300 rounded-md p-2 w-[180px]"
+                  />
+
+                  {/* 도착지 */}
+                  <input
+                    type="text"
+                    placeholder="도착지"
+                    className="border border-gray-300 rounded-md p-2 w-[180px]"
+                  />
+
+                  {/* 탑승일 (달력 UI) */}
+                  <div className="relative w-[180px]">
+                    <input
+                      type="text"
+                      placeholder="탑승일"
+                      value={departureDate ? departureDate.toLocaleDateString("ko-KR") : ""}
+                      onClick={() => setIsOpen(!isOpen)}
+                      readOnly
+                      className="border border-gray-300 rounded-md p-2 w-full cursor-pointer"
+                    />
+
+                    {/* 달력 창 */}
+                    {isOpen && (
+                      <div className="absolute top-12 left-0 bg-white shadow-lg border border-gray-300 rounded-md z-50">
+                        <DatePicker
+                          selected={departureDate}
+                          onChange={handleDateChange}
+                          dateFormat="yyyy-MM-dd"
+                          inline
+                          monthsShown={2}  // 한 번에 두 개의 달 표시
+                          minDate={new Date()} // 오늘 이후 날짜만 선택 가능
+                          showPopperArrow={false}
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* 탑승객 성 */}
+                  <input
+                    type="text"
+                    placeholder="탑승객 성"
+                    className="border border-gray-300 rounded-md p-2 w-[180px]"
+                  />
+
+                  {/* 탑승객 이름 */}
+                  <input
+                    type="text"
+                    placeholder="탑승객 이름"
+                    className="border border-gray-300 rounded-md p-2 w-[180px]"
+                  />
+                </div>
+                <p className="flex w-full justify-between mt-2">
+                  <span className="sertext">예약번호는 8자리 숫자 또는 6자리 영문/숫자를 입력하세요.</span>
+                  <span className="w-[380px]">
+                    <span className="sertext inline-block w-[180px]">예시 :  KIM</span>
+                    <span className="sertext inline-block w-[180px] ml-[20px]">예시 :  CHEOLSU</span>
+                  </span>
+                </p>
+                {/* 조회 버튼 */}
+                <button className="mt-4 w-[230px] bg-blue-500 text-white rounded-md hover:bg-blue-600 transition p-[11px]">
+                  예약조회
+                </button>
+              </div>
+            </div>
           </div>
-          <div></div>
         </div>
       </div>
     </div>
