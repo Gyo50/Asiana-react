@@ -109,111 +109,114 @@ export default function Sec1() {
           </div>
         </div>
 
-        /* 항공권 */
+        { /* 항공권 */ }
         <div className="z-30 relative">
           <div className="w-auto py-[30px] px-[50px] bg-[#ffff] rounded-b-lg shadow-2xl">
-            <div className="flex items-center relative">
-              <div className="flex items-center gap-3 h-[46px]">
-                <span className=" font-medium">마일리지 사용</span>
-                <label className="relative flex items-center cursor-pointer w-[50px] h-[25px]">
-                  <input
-                    type="checkbox"
-                    id="allChecked"
-                    className="sr-only peer"
-                    checked={isChecked}
-                    onChange={toggleSwitch}
+            <div className="books">
+              <div className="flex items-center relative">
+                <div className="flex items-center gap-3 h-[46px]">
+                  <span className=" font-medium">마일리지 사용</span>
+                  <label className="relative flex items-center cursor-pointer w-[50px] h-[25px]">
+                    <input
+                      type="checkbox"
+                      id="allChecked"
+                      className="sr-only peer"
+                      checked={isChecked}
+                      onChange={toggleSwitch}
+                    />
+                    <div className="w-full h-full bg-gray-400 peer-checked:bg-blue-500 relative transition duration-300"></div>
+                    <div
+                      className={`absolute top-1/2 transform -translate-y-1/2 w-[30px] h-[30px] bg-white flex items-center justify-center text-xs font-bold transition-all duration-300 shadow-lg ${isChecked ? "left-[28px]" : "left-[0px]"
+                        }`}
+                    >
+                      {isChecked ? "ON" : "OFF"}
+                    </div>
+                  </label>
+                </div>
+                <span className="line inline-block float-left w-[1px] h-[46px] bg-[#ccc] my-[5px] mx-[15px]"></span>
+                <div className="h-auto">
+                  <ul className="flex h-[46px] items-center text-center">
+                    <li className="w-[105px] h-full leading-[46px] bg-[#f3f3f3]"><a href="#">왕복</a></li>
+                    <li className="w-[105px] h-full leading-[46px] bg-[#f3f3f3]"><a href="#">편도</a></li>
+                    <li className="w-[105px] h-full leading-[46px] bg-[#f3f3f3]"><a className="arrow-box" href="#"><span className="arrow">다구간</span></a></li>
+                  </ul>
+                </div>
+                <div
+                  className="w-[46px] h-[46px] bg-[#f3f3f3] ml-[15px] flex items-center justify-center cursor-pointer"
+                  onClick={toggleStar}>
+                  <img
+                    src={isStar ? "/img/starfill.png" : "/img/star.png"}
+                    alt="Star Icon"
+                    className="w-[20px] h-[20px] transition-all duration-300"
                   />
-                  <div className="w-full h-full bg-gray-400 peer-checked:bg-blue-500 relative transition duration-300"></div>
-                  <div
-                    className={`absolute top-1/2 transform -translate-y-1/2 w-[30px] h-[30px] bg-white flex items-center justify-center text-xs font-bold transition-all duration-300 shadow-lg ${isChecked ? "left-[28px]" : "left-[0px]"
-                      }`}
-                  >
-                    {isChecked ? "ON" : "OFF"}
-                  </div>
-                </label>
+                </div>
+                <div className="pl-4">
+                  <input type="checkbox" />
+                  <label className="ml-2 font-medium" htmlFor="">가까운 날짜 조회</label>
+                </div>
+                <div className="absolute right-[30px]">
+                  <button className="font-bold border-solid border-rose-700 border-[1px] py-[9px] px-[9px]">쿠폰조회</button>
+                </div>
               </div>
-              <span className="line inline-block float-left w-[1px] h-[46px] bg-[#ccc] my-[5px] mx-[15px]"></span>
-              <div className="h-auto">
-                <ul className="flex h-[46px] items-center text-center">
-                  <li className="w-[105px] h-full leading-[46px] bg-[#f3f3f3]"><a href="#">왕복</a></li>
-                  <li className="w-[105px] h-full leading-[46px] bg-[#f3f3f3]"><a href="#">편도</a></li>
-                  <li className="w-[105px] h-full leading-[46px] bg-[#f3f3f3]"><a className="arrow-box" href="#"><span className="arrow">다구간</span></a></li>
-                </ul>
-              </div>
-              <div
-                className="w-[46px] h-[46px] bg-[#f3f3f3] ml-[15px] flex items-center justify-center cursor-pointer"
-                onClick={toggleStar}>
-                <img
-                  src={isStar ? "/img/starfill.png" : "/img/star.png"}
-                  alt="Star Icon"
-                  className="w-[20px] h-[20px] transition-all duration-300"
+              <div className="bg-white rounded-lg flex items-center gap-4 relative mt-5">
+                {/* 출발지 */}
+                <input
+                  type="text"
+                  placeholder="출발지"
+                  value={departure}
+                  onChange={(e) => setDeparture(e.target.value)}
+                  className="border border-gray-300 rounded-md p-2 w-[120px]"
                 />
+
+                {/* 도착지 */}
+                <input
+                  type="text"
+                  placeholder="도착지"
+                  value={arrival}
+                  onChange={(e) => setArrival(e.target.value)}
+                  className="border border-gray-300 rounded-md p-2 w-[120px]"
+                />
+
+                {/* 탑승일 */}
+                <input
+                  type="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  className="border border-gray-300 rounded-md p-2 w-[140px]"
+                />
+
+                {/* 탑승객 수 */}
+                <input
+                  type="number"
+                  min="1"
+                  value={passengers}
+                  onChange={(e) => setPassengers(e.target.value)}
+                  className="border border-gray-300 rounded-md p-2 w-[80px]"
+                />
+
+                {/* 좌석 등급 */}
+                <select
+                  value={classType}
+                  onChange={(e) => setClassType(e.target.value)}
+                  className="border border-gray-300 rounded-md p-2 w-[140px]"
+                >
+                  <option value="economy">이코노미</option>
+                  <option value="business">비즈니스</option>
+                  <option value="first">퍼스트 클래스</option>
+                </select>
+
+                {/* 조회 버튼 */}
+                <button
+                  onClick={handleSearch}
+                  className="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition absolute right-[30px]"
+                >
+                  조회
+                </button>
               </div>
-              <div className="pl-4">
-                <input type="checkbox" />
-                <label className="ml-2 font-medium" htmlFor="">가까운 날짜 조회</label>
-              </div>
-              <div className="absolute right-[30px]">
-                <button className="font-bold border-solid border-rose-700 border-[1px] py-[9px] px-[9px]">쿠폰조회</button>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg flex items-center gap-4 relative mt-5">
-              {/* 출발지 */}
-              <input
-                type="text"
-                placeholder="출발지"
-                value={departure}
-                onChange={(e) => setDeparture(e.target.value)}
-                className="border border-gray-300 rounded-md p-2 w-[120px]"
-              />
-
-              {/* 도착지 */}
-              <input
-                type="text"
-                placeholder="도착지"
-                value={arrival}
-                onChange={(e) => setArrival(e.target.value)}
-                className="border border-gray-300 rounded-md p-2 w-[120px]"
-              />
-
-              {/* 탑승일 */}
-              <input
-                type="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                className="border border-gray-300 rounded-md p-2 w-[140px]"
-              />
-
-              {/* 탑승객 수 */}
-              <input
-                type="number"
-                min="1"
-                value={passengers}
-                onChange={(e) => setPassengers(e.target.value)}
-                className="border border-gray-300 rounded-md p-2 w-[80px]"
-              />
-
-              {/* 좌석 등급 */}
-              <select
-                value={classType}
-                onChange={(e) => setClassType(e.target.value)}
-                className="border border-gray-300 rounded-md p-2 w-[140px]"
-              >
-                <option value="economy">이코노미</option>
-                <option value="business">비즈니스</option>
-                <option value="first">퍼스트 클래스</option>
-              </select>
-
-              {/* 조회 버튼 */}
-              <button
-                onClick={handleSearch}
-                className="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition absolute right-[30px]"
-              >
-                조회
-              </button>
             </div>
             
           </div>
+          <div></div>
         </div>
       </div>
     </div>
