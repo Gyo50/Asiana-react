@@ -21,7 +21,7 @@ export class Header extends Component {
 
   render() {
     return (
-      <header className="fixed w-full bg-blue-800 text-white z-10">
+      <header className="fixed w-full bg-blue-800 text-white z-[999]">
         <div className="flex gap-6 justify-end text-white h-auto mr-[270px] mt-1">
           {["회원가입", "이벤트", "자주 묻는 질문", "언어 선택"].map((item, index) => (
             <div

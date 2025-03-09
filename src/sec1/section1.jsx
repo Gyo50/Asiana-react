@@ -78,6 +78,7 @@ export default function Sec1() {
 
   // 📌 날짜 변경 핸들러
   const handleDateChange = (selectedDate) => {
+    console.log("선택된 날짜:", selectedDate);
     setDate(selectedDate);  // ✅ 선택한 날짜를 state에 저장
     setIsOpen(false); // ✅ 날짜 선택 후 달력 닫기
   };
@@ -114,6 +115,12 @@ export default function Sec1() {
   const handleInputFocus = () => {
     setShowOverlay(true);
   };
+  // ✅ date 상태 변화 확인
+  useEffect(() => {
+    console.log("현재 date 상태:", date);
+  }, [date]);
+
+
   return (
     <div className="relative w-full h-full flex flex-col items-center">
       {/* Overlay */}
@@ -133,7 +140,7 @@ export default function Sec1() {
         pagination={{ clickable: true, el: ".custom-pagination" }}
         navigation={{ nextEl: ".custom-next", prevEl: ".custom-prev" }}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
+        className="sec1-swiper"
         onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
         {Array.from({ length: 5 }, (_, index) => (
@@ -260,27 +267,25 @@ export default function Sec1() {
                 />
 
                 {/* 📌 탑승일 입력 필드 */}
-                <div className="relative w-[140px]" ref={datePickerRef}>
+                <div className="relative w-[140px]">
                   <input
                     type="text"
                     placeholder="탑승일"
                     value={date ? date.toLocaleDateString("ko-KR") : ""}
                     onClick={() => setIsOpen(!isOpen)}
-                    onFocus={handleInputFocus}  // ⭐ 포커스 시 overlay 활성화
                     readOnly
                     className="border border-gray-300 rounded-md p-2 w-full cursor-pointer"
                   />
 
-                  {/* 📌 달력 UI */}
                   {isOpen && (
                     <div className="absolute top-12 left-0 bg-white shadow-lg border border-gray-300 rounded-md z-50">
                       <DatePicker
-                        selected={date} // ✅ 선택된 날짜 적용
-                        onChange={handleDateChange} // ✅ 날짜 변경 핸들러 실행
+                        selected={date}
+                        onChange={handleDateChange}
                         dateFormat="yyyy-MM-dd"
                         inline
-                        monthsShown={2}  // 한 번에 두 개의 달 표시
-                        minDate={new Date()} // 오늘 이후 날짜만 선택 가능
+                        monthsShown={2}
+                        minDate={new Date()}
                         showPopperArrow={false}
                       />
                     </div>
