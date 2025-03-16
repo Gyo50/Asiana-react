@@ -126,8 +126,8 @@ export default function Sec1() {
       {/* Overlay */}
       {showOverlay && (
         <div
-          className="absolute inset-0 bg-black opacity-50 z-30 cursor-pointer"
-          onClick={handleOverlayClick} // Overlay 클릭 시 handler 추가
+          className="absolute inset-0 bg-black opacity-50 z-[60] cursor-pointer"
+          onClick={handleOverlayClick} 
         />
       )}
 
@@ -168,29 +168,29 @@ export default function Sec1() {
         ❯
       </button>
 
-      <div className={`w-[1280px] z-40 absolute left-[20%] top-0 box-border mx-auto transition-all duration-1000 ease-in-out ${showOverlay ? 'mt-[100px]' : 'mt-[652px]'}`}>
+      <div className={`w-[1280px] z-60 absolute left-[20%] top-0 box-border mx-auto transition-all duration-1000 ease-in-out ${showOverlay ? 'mt-[100px]' : 'mt-[652px]'}`}>
         {/* 항공권 관련 버튼 */}
-        <div className="-mt-14 flex w-full max-w-4xl text-center absolute">
+        <div className="-mt-14 flex w-full max-w-4xl text-center absolute z-[60]">
           <button
-            className={`p-5 w-[150px] h-[65px] ${activeButton === "books" ? "bg-white text-blue-700" : "bg-red-500"} text-white rounded-lg shadow-lg`}
+            className={`p-5 w-[150px] h-[65px] ${activeButton === "books" ? "bg-white text-blue-700" : "bg-red-500 text-white"} rounded-lg shadow-lg`}
             onClick={() => handleButtonClick("books")}
           >
             항공권 예약
           </button>
           <button
-            className={`p-5 w-[150px] h-[65px] ${activeButton === "secrch" ? "bg-white text-blue-700" : "bg-pink-800"} text-white rounded-lg shadow-lg`}
+            className={`p-5 w-[150px] h-[65px] ${activeButton === "secrch" ? "bg-white text-blue-700" : "bg-pink-800 text-white"} rounded-lg shadow-lg`}
             onClick={() => handleButtonClick("secrch")}
           >
             예약 조회
           </button>
           <button
-            className={`p-5 w-[150px] h-[65px] ${activeButton === "checkin" ? "bg-white text-blue-700" : "bg-blue-700"} text-white rounded-lg shadow-lg`}
+            className={`p-5 w-[150px] h-[65px] ${activeButton === "checkin" ? "bg-white text-blue-700" : "bg-blue-700 text-white"} rounded-lg shadow-lg`}
             onClick={() => handleButtonClick("checkin")}
           >
             체크인
           </button>
           <button
-            className={`p-5 w-[150px] h-[65px] ${activeButton === "arrive" ? "bg-white text-blue-700" : "bg-yellow-400"} text-white rounded-lg shadow-lg`}
+            className={`p-5 w-[150px] h-[65px] ${activeButton === "arrive" ? "bg-white text-blue-700" : "bg-yellow-400 text-white"} rounded-lg shadow-lg`}
             onClick={() => handleButtonClick("arrive")}
           >
             출도착 조회

@@ -1,43 +1,36 @@
 import React, {  useEffect, useState } from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/mousewheel';
-
 import './Sec2.css';
-
-// import required modules
 import { EffectCoverflow, Pagination, Mousewheel } from 'swiper/modules';
 
-export default function Sec2({ isScrolled }) {
-  const [localScrolled, setLocalScrolled] = useState(false);
-
+export default function Sec2({ isScrolled, setIsScrolled }) {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
-        setLocalScrolled(true);
+        setIsScrolled(true);
       } else {
-        setLocalScrolled(false);
+        setIsScrolled(false);
       }
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+  }, [setIsScrolled]);
+  
   
   return (
     <>
-      <div  className={`mt-[350px] w-full h-48 bg-lightblue transition-transform duration-1000 ease-out ${localScrolled || isScrolled ? 'translate-y-[-1000px]' : 'translate-y-0'}`}>
+       <div className={`mt-[350px] rounded-t-3xl w-full h-full bg-gray-300 transition-transform duration-1000 ease-out ${isScrolled ? 'translate-y-[-300px]' : 'translate-y-0'} z-[60] relative`}>
         <div className='flex w-full justify-between text-base font-bold pt-4 '>
-          <p><h1>최저가 간편 조회</h1></p>
-          <p><span>오늘부터 6개월 내 출발하는 항공편의 최저가와 출발일을 간편하게 조회하실 수 있습니다.</span></p>
+          <p className='ml-5'><h1>최저가 간편 조회</h1></p>
+          <p className='mr-5'><span>오늘부터 6개월 내 출발하는 항공편의 최저가와 출발일을 간편하게 조회하실 수 있습니다.</span></p>
         </div>
-      <Swiper
+        <Swiper
         effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
@@ -50,10 +43,14 @@ export default function Sec2({ isScrolled }) {
           slideShadows: true,
         }}
         pagination={false}
-        mousewheel={true}
+        mousewheel={{
+          releaseOnEdges: true, 
+          sensitivity: 0.5, 
+        }}
+        loop={false}
         modules={[EffectCoverflow, Pagination, Mousewheel]}
         className="sec2-swiper"
-      >
+        >
         <SwiperSlide>
           <div className='relative'>
             <img src="https://ozimg.flyasiana.com/image_fixed/destination/des_M_LAX_01.jpg" />

@@ -6,7 +6,25 @@ export class Header extends Component {
     super(props);
     this.state = {
       activeDropdown: null, // 현재 활성화된 드롭다운 (예약, 여행준비, 스카이패스)
+      isScrolled: false, // 스크롤 여부 상태
     };
+  }
+
+  // 스크롤 이벤트 핸들러
+  handleScroll = () => {
+    if (window.scrollY > 50) {
+      this.setState({ isScrolled: true });
+    } else {
+      this.setState({ isScrolled: false });
+    }
+  };
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
   }
 
   // 드롭다운 열기
@@ -21,7 +39,10 @@ export class Header extends Component {
 
   render() {
     return (
-      <header className="fixed w-full bg-blue-800 text-white z-[999]">
+
+      <header className={`fixed w-full text-white z-50 bg-blue-800 transition-transform duration-1000 ease-out ${
+        this.state.isScrolled ? 'translate-y-[-160px]' : 'translate-y-0'
+      }`}>
         <div className="flex gap-6 justify-end text-white h-auto mr-[270px] mt-1">
           {["회원가입", "이벤트", "자주 묻는 질문", "언어 선택"].map((item, index) => (
             <div
