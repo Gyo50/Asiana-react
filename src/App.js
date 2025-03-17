@@ -4,6 +4,7 @@ import './index.css';
 import Header from './header/header';
 import Sec1 from './sec1/section1';
 import Sec2 from './sec2/section2';
+import Sec3 from './sec3/section3';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <Header isScrolled={isScrolled}/>
       <Sec1 />
       <Sec2 isScrolled={isScrolled} setIsScrolled={setIsScrolled}/>
+      <Sec3/>
     </>
   );
 }

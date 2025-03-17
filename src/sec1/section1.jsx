@@ -199,7 +199,7 @@ export default function Sec1() {
 
 
         {/* 항공권 예약 폼 */}
-        <div className={`z-30 relative ${activeButton !== "books" && "hidden"}`}>
+        <div className={`z-[60] relative ${activeButton !== "books" && "hidden"}`}>
           <div className="w-auto py-[30px] px-[50px] bg-[#ffff] rounded-b-lg shadow-2xl">
             <div className="books">
               <div className="flex items-center relative">
@@ -326,7 +326,7 @@ export default function Sec1() {
           </div>
         </div>
         {/* 예약 조회 UI */}
-        <div className={`z-30 relative ${activeButton !== "secrch" && "hidden"}`}>
+        <div className={`z-[60] relative ${activeButton !== "secrch" && "hidden"}`}>
           <div className="w-auto py-[30px] px-[50px] bg-[#ffff] rounded-b-lg shadow-2xl">
             <div className="secrch">
               <div>
@@ -412,7 +412,7 @@ export default function Sec1() {
         </div>
 
         {/* 체크인 UI */}
-        <div className={`z-30 relative ${activeButton !== "checkin" && "hidden"}`}>
+        <div className={`z-[60] relative ${activeButton !== "checkin" && "hidden"}`}>
           <div className="w-auto py-[30px] px-[50px] bg-[#ffff] rounded-b-lg shadow-2xl">
             <div className="checkin ">
               <div>
@@ -492,7 +492,7 @@ export default function Sec1() {
         </div>
 
         {/* 도착 조회 UI */}
-        <div className={`z-30 relative ${activeButton !== "arrive" && "hidden"}`}>
+        <div className={`z-[60] relative ${activeButton !== "arrive" && "hidden"}`}>
           <div className="w-auto py-[30px] px-[50px] bg-[#ffff] rounded-b-lg shadow-2xl">
             <div className="arrive">
               <div>

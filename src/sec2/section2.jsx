@@ -25,7 +25,7 @@ export default function Sec2({ isScrolled, setIsScrolled }) {
   
   return (
     <>
-       <div className={`mt-[350px] rounded-t-3xl w-full h-full bg-gray-300 transition-transform duration-1000 ease-out ${isScrolled ? 'translate-y-[-300px]' : 'translate-y-0'} z-[60] relative`}>
+       <div className={`mt-[350px] rounded-t-3xl w-full h-full bg-gray-300 transition-transform duration-1000 ease-out ${isScrolled ? 'translate-y-[-600px]' : 'translate-y-0'} z-[60] relative`}>
         <div className='flex w-full justify-between text-base font-bold pt-4 '>
           <p className='ml-5'><h1>최저가 간편 조회</h1></p>
           <p className='mr-5'><span>오늘부터 6개월 내 출발하는 항공편의 최저가와 출발일을 간편하게 조회하실 수 있습니다.</span></p>

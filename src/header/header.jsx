@@ -305,15 +305,27 @@ export class Header extends Component {
               )}
               </div>
             </ul>
-            <div className='w-auto h-auto'>
+            <div className='flex gap-4'>
               <div>
-                <div><a className='w-10 h-10 bg-airplan inline-block'></a></div>
+                <div className='mr-3 cursor-pointer'>
+                  <a href="#">
+                  <img src="/img/airplane.png" className='w-8 h-8' alt="" />
+                  </a>
+                </div>
               </div>
               <div>
-                <div><a></a></div>
+                <div className='mr-3 cursor-pointer'>
+                  <a href="#">
+                    <img src="/img/users.png" className='w-8 h-8' alt="" />
+                  </a>
+                </div>
               </div>
               <div>
-                <div><a></a></div>
+                <div className=' cursor-pointer'>
+                  <a href="#">
+                    <img src="/img/magnifier.png" className='w-8 h-8' alt="" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
