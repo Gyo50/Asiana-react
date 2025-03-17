@@ -12,7 +12,7 @@ export class Header extends Component {
 
   // 스크롤 이벤트 핸들러
   handleScroll = () => {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 100) {
       this.setState({ isScrolled: true });
     } else {
       this.setState({ isScrolled: false });
