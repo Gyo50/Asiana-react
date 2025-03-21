@@ -65,7 +65,7 @@ export default function Sec3() {
   ];
 
   return (
-    <motion.div className="relative h-[200vh] flex flex-row items-center justify-center gap-40 border-2 border-black p-6 rounded-lg shadow-lg">
+    <motion.div className="h-[200vh] flex flex-row items-center justify-center gap-40 border-2 border-black p-6 rounded-lg shadow-lg static mt-[-300px]">
   {xValues.map((x, colIndex) => (
     <div key={colIndex} className="flex flex-col gap-6 items-center">
       {/* ✅ 각 열의 제목 */}
