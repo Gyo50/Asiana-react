@@ -16,9 +16,7 @@ body {
 
 .sec2-swiper {
   width: 100%;
-  margin: 300px 0;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding: 350px 0;
 }
 
 .sec2-swiper .swiper-slide {

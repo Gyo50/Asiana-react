@@ -68,20 +68,19 @@ export default function Sec3() {
     <motion.div className="h-[200vh] flex flex-row items-center justify-center gap-40 border-2 border-black p-6 rounded-lg shadow-lg static mt-[-300px]">
   {xValues.map((x, colIndex) => (
     <div key={colIndex} className="flex flex-col gap-6 items-center">
-      {/* ✅ 각 열의 제목 */}
       <p className="text-2xl font-bold mb-4">{columnTitles[colIndex]}</p>
       {(columnImages[colIndex] || []).map((item, rowIndex) => (
         <motion.div
           key={`${colIndex}-${rowIndex}`}
           className="flex flex-col items-center text-center"
-          style={{ y: x }} // ✅ 이미지 + 제목 + 설명이 함께 움직이도록 설정
+          style={{ y: x }} 
         >
           <motion.img
             src={item.src}
             alt={item.title}
             className="w-44 h-44 object-cover rounded-lg shadow-lg"
-            whileHover={{ scale: 1.1 }} // ✅ 마우스 호버 시 확대
-            transition={{ duration: 0.3 }} // ✅ 부드러운 애니메이션 추가
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.3 }}
           />
           <p className="mt-2 text-lg font-bold">{item.title}</p>
           <p className="text-sm text-gray-600">{item.desc}</p>

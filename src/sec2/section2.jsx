@@ -53,7 +53,7 @@ export default function Sec2({ isScrolled, setIsScrolled }) {
         >
           <SwiperSlide>
             <div className='relative'>
-              <img src="https://ozimg.flyasiana.com/image_fixed/destination/des_M_LAX_01.jpg" />
+              <img src="https://ozimg.flyasiana.com/image_fixed/destination/des_M_LAX_01.jpg" alt />
               <div className='absolute bottom-0 left-0 w-full bg-opacity-80 bg-black px-[20px] py-[10px] text-white text-left'>
                 <p className='text-base font-bold mb-1'>
                   <span>서울 / 인천</span>
